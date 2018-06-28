@@ -153,8 +153,93 @@ namespace ExamPrepTwo70_483
             //Console.ReadLine();
 
             // using a ConcurrentDictionary 
-            ConcurrentDictionary<bool, int> cd = new ConcurrentDictionary<bool, int>();
-            //
+            //var dict = new ConcurrentDictionary<string, int>();
+            //if (dict.TryAdd("k1", 42))
+            //{
+            //    Console.WriteLine("Added");
+            //}
+
+            //if (dict.TryUpdate("k1", 21, 42))
+            //{
+            //    Console.WriteLine("42 updated to 21");
+            //}
+
+            //dict["k1"] = 42; // Overwrite unconditionally 
+
+            //int r1 = dict.AddOrUpdate("k1", 3, (s, i) => i * 2);
+            //int r2 = dict.GetOrAdd("k2", 3);
+
+            //Console.ReadKey();
+
+            //Accessing shared data in a multithreaded a;;lication 
+
+            //int n = 0;
+
+            //var up = Task.Run(() =>
+            //{
+            //    for (int i = 0; i < 1000000; i++)
+            //    {
+            //        n++;
+            //    }
+            //});
+
+            //for (int i = 0; i < 1000000; i++)
+            //{
+            //    n--;
+            //    up.Wait();
+            //    Console.WriteLine(n);
+            //}
+            //using the lock keyword
+
+            //int n = 0;
+
+            //object _lock = new object();
+
+            //var up = Task.Run(() =>
+            //{
+            //    for (int i = 0; i < 1000000; i++)
+            //    {
+            //        //lock (_lock)
+            //            n++;
+            //    }
+            //});
+
+            //for (int i = 0; i < 1000000; i++)
+            //{
+            //    //lock (_lock)
+            //        n--;
+
+            //    up.Wait();
+            //    Console.WriteLine(n);
+            //}
+
+            // Creating a deadlock
+
+            object lockA = new object();
+            object lockB = new object();
+
+            var up = Task.Run(() =>
+            {
+                lock (lockA)
+                {
+                    Thread.Sleep(1000);
+                    lock (lockB)
+                    {
+                        Console.WriteLine("Locked A and B");
+                    }
+                }
+            });
+
+            lock (lockB)
+            {
+                lock (lockA)
+                {
+                    Console.WriteLine("Locked B and A");
+                }
+            }
+            up.Wait();
+            Console.ReadKey();
+            
         }
     }
     
