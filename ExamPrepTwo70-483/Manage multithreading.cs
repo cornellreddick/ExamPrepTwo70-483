@@ -92,18 +92,18 @@ namespace ExamPrepTwo70_483
     //public void Raise()
     //{
     //    OnChange();
-    
+
     //Custom event arguments
 
-    //public class MyArgs : EventArgs
-    //{
-    //    public int Value { get; set; }
+    public class MyArgs : EventArgs
+    {
+        public int Value { get; set; }
 
-    //    public MyArgs(int value)
-    //    {
-    //        Value = value;
-    //    }
-    //}
+        public MyArgs(int value)
+        {
+            Value = value;
+        }
+    }
 
     //public class Pub
     //{
@@ -123,4 +123,35 @@ namespace ExamPrepTwo70_483
     //    p.Raise();
 
     //}
+
+    // Custom event accessor
+
+    public class Pub
+    {
+        private event EventHandler<MyArgs> onChange = delegate { };
+        public event EventHandler<MyArgs> OnChange
+        {
+          add
+            {
+                lock (onChange)
+                {
+                    onChange += value;
+                }
+          }
+
+            remove
+            {
+                lock (onChange)
+                {
+                    onChange -= value;
+                }
+            }
+        }
+
+        public void Raise()
+        {
+            onChange(this, new MyArgs(42));
+        }
+        
+    }
 }
