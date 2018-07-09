@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace ExamPrepTwo70_483
 {
     class Program
@@ -215,31 +216,80 @@ namespace ExamPrepTwo70_483
 
             // Creating a deadlock
 
-            object lockA = new object();
-            object lockB = new object();
+            //object lockA = new object();
+            //object lockB = new object();
 
-            var up = Task.Run(() =>
-            {
-                lock (lockA)
-                {
-                    Thread.Sleep(1000);
-                    lock (lockB)
-                    {
-                        Console.WriteLine("Locked A and B");
-                    }
-                }
-            });
+            //var up = Task.Run(() =>
+            //{
+            //    lock (lockA)
+            //    {
+            //        Thread.Sleep(1000);
+            //        lock (lockB)
+            //        {
+            //            Console.WriteLine("Locked A and B");
+            //        }
+            //    }
+            //});
 
-            lock (lockB)
-            {
-                lock (lockA)
-                {
-                    Console.WriteLine("Locked B and A");
-                }
-            }
-            up.Wait();
+            //lock (lockB)
+            //{
+            //    lock (lockA)
+            //    {
+            //        Console.WriteLine("Locked B and A");
+            //    }
+            //}
+            //up.Wait();
+
+            //Generated code from a lock statement
+            //You shouldn't write this code by hand. The compiler will generate it for you. 
+            //object gate = new object();
+            //bool _lockTaken = false;
+            //try
+            //{
+            //    Monitor.Enter(gate, ref _lockTaken);
+            //}
+            //finally
+            //{
+            //    if (_lockTaken)
+            //    {
+            //        Monitor.Exit(gate);
+            //    }
+            //}
+
+            //Volatile class
+            // A potential problem with multithreaded code
+
+            //Using the Interlocked class
+
+            //int n = 0;
+
+            //var up = Task.Run(() =>
+            //{
+            //    for (int i = 0; i < 1000000; i++)
+            //    {
+            //        Interlocked.Increment(ref n);
+            //    }
+            //});
+
+            //for (int i = 0; i < 1000000; i++)
+            //{
+            //    Interlocked.Decrement(ref n);
+            //}
+            //up.Wait();
+            //Console.WriteLine();
+
+            //Understanding delegates
+
+            Manage_multithreading calcu = new Manage_multithreading();
+            calcu.UseDelegate();
+
+        
+
+
+
+
             Console.ReadKey();
-            
+
         }
     }
     
