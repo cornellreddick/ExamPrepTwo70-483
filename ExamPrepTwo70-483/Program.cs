@@ -280,8 +280,8 @@ namespace ExamPrepTwo70_483
 
             //Understanding delegates
 
-            Manage_multithreading calcu = new Manage_multithreading();
-            calcu.UseDelegate();
+            //Manage_multithreading calcu = new Manage_multithreading();
+            //calcu.UseDelegate();
 
         
 

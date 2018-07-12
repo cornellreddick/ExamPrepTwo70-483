@@ -126,32 +126,50 @@ namespace ExamPrepTwo70_483
 
     // Custom event accessor
 
-    public class Pub
-    {
-        private event EventHandler<MyArgs> onChange = delegate { };
-        public event EventHandler<MyArgs> OnChange
-        {
-          add
-            {
-                lock (onChange)
-                {
-                    onChange += value;
-                }
-          }
+    //public class Pub
+    //{
+    //    private event EventHandler<MyArgs> onChange = delegate { };
+    //    public event EventHandler<MyArgs> OnChange
+    //    {
+    //      add
+    //        {
+    //            lock (onChange)
+    //            {
+    //                onChange += value;
+    //            }
+    //      }
 
-            remove
-            {
-                lock (onChange)
-                {
-                    onChange -= value;
-                }
-            }
-        }
+    //        remove
+    //        {
+    //            lock (onChange)
+    //            {
+    //                onChange -= value;
+    //            }
+    //        }
+    //    }
 
-        public void Raise()
-        {
-            onChange(this, new MyArgs(42));
-        }
+    //    public void Raise()
+    //    {
+    //        onChange(this, new MyArgs(42));
+    //    }
         
+    //}
+
+    public class practice
+    {
+        //Using the FlagAttribute for an enum
+        [Flags]
+        enum Days
+        {
+            none = 0x0, 
+            Sunday = 0x1, 
+            Monday = 0x2,
+            Tuesday = 0x4, 
+            Wednesday = 0x8,
+            Thurday = 0x10, 
+            Friday = 0x20,
+            Saturday =0x40
+        }
+        Days readingDays = Days.Monday | Days.Saturday;
     }
 }
