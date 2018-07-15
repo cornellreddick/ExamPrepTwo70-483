@@ -95,15 +95,15 @@ namespace ExamPrepTwo70_483
 
     //Custom event arguments
 
-    public class MyArgs : EventArgs
-    {
-        public int Value { get; set; }
+    //public class MyArgs : EventArgs
+    //{
+    //    public int Value { get; set; }
 
-        public MyArgs(int value)
-        {
-            Value = value;
-        }
-    }
+    //    public MyArgs(int value)
+    //    {
+    //        Value = value;
+    //    }
+    //}
 
     //public class Pub
     //{
@@ -155,21 +155,34 @@ namespace ExamPrepTwo70_483
         
     //}
 
-    public class practice
-    {
-        //Using the FlagAttribute for an enum
-        [Flags]
-        enum Days
-        {
-            none = 0x0, 
-            Sunday = 0x1, 
-            Monday = 0x2,
-            Tuesday = 0x4, 
-            Wednesday = 0x8,
-            Thurday = 0x10, 
-            Friday = 0x20,
-            Saturday =0x40
-        }
-        Days readingDays = Days.Monday | Days.Saturday;
-    }
+    //public class practice
+    //{
+    //    //Using the FlagAttribute for an enum
+    //    [Flags]
+    //    enum Days
+    //    {
+    //        none = 0x0, 
+    //        Sunday = 0x1, 
+    //        Monday = 0x2,
+    //        Tuesday = 0x4, 
+    //        Wednesday = 0x8,
+    //        Thurday = 0x10, 
+    //        Friday = 0x20,
+    //        Saturday =0x40
+    //    }
+    //    Days readingDays = Days.Monday | Days.Saturday;
+    //}
+
+    //creating a custom struct
+
+    //public struct Point
+    //{
+    //    public int x, y;
+
+    //    public Point(int p1, int p2)
+    //    {
+    //        x = p1;
+    //        y = p2;
+    //    }
+    //}
 }
