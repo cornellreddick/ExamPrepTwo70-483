@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -283,12 +284,12 @@ namespace ExamPrepTwo70_483
             //Manage_multithreading calcu = new Manage_multithreading();
             //calcu.UseDelegate();
 
-        //Test'
+            //Test'
 
             //Creating a custom struct
-            publi
 
-
+            List<int> mylist = new List<int>() { 1, 3, 5 };
+            mylist[0] = 1;
 
 
             Console.ReadKey();
