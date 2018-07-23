@@ -13,5 +13,11 @@ namespace ExamPrepTwo70_483
         }
 
         T MyProperty { get; set; }
+        
+        // using default(T) with a generic type parameter
+        public void MyGenericMethod<T>()
+        {
+            T defaultValue = default(T);
+        }
     }
 }
