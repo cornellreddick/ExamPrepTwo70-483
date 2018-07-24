@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-
+using Excel;
 
 namespace ExamPrepTwo70_483
 {
@@ -339,9 +339,57 @@ namespace ExamPrepTwo70_483
             //value = int.Parse("42");
             //bool success = int.TryParse("42,", out value);
 
+            var entities = new List<dynamic> {
+            new
+            {
+                ColumnA = 1, ColumnB = "Foo"
+            },
+            new
+            {
+                ColumnA = 2, ColumB = "Bar"
+            }
+            };
+
+            DisplayInExcel(entities);
+
             Console.ReadKey();
 
         }
+
+
+        //Exportining some data to Excel 
+        static void DisplayInExcel(IEnumerable<dynamic> entities)
+        {
+            var excelApp = new Excel.Appliction();
+            excelApp.Visible = true;
+            NewMethod(excelApp);
+        
+
+          excelApp.Workbooks.Add();
+
+            dynamic workSheet = excelApp.ActiveSheet;
+
+            workSheet.Cells[1, "A"] = "Header A";
+            workSheet.Cells[1, "B"] = "Header B";
+
+            var row = 1;
+            foreach (var entity in entities)
+            {
+                row++;
+                workSheet.Cells[row, "A"] = entity.ColumnA;
+                workSheet.Cells[row, "B"] = entity.ColumnB;
+            }
+
+            workSheet.Columns[1].Autofit();
+            workSheet.Columns[2].Autofit();
+        }
+
+        public static void NewMethod(Appliction excelApp)
+        {
+            Add();
+        }
+
+       
     }
     
 }

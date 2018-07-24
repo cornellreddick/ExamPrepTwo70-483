@@ -29,6 +29,11 @@ namespace ExamPrepTwo70_483
 
     internal class SqlConnection
     {
+        public string _connected { get; set; }
 
+        public SqlConnection(string connection)
+        {
+            _connected = connection;
+        }
     }
 }
