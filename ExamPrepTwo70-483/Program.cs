@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
@@ -312,9 +313,20 @@ namespace ExamPrepTwo70_483
             //double d = i;
 
             //implicity converting an object to a base type
-            HttpClient client = new HttpClient();
-            object o = client;
-            IDisposable d = client;
+            //HttpClient client = new HttpClient();
+            //object o = client;
+            //IDisposable d = client;
+
+            // Casting a doubl to an int 
+            //double x = 1234.7;
+            //int a;
+            //// Cast dobule to int 
+            //a = (int)x;
+
+            //Explicityly casting a base type to a derived type
+
+            //Object stream = new MemoryStream();
+            //MemoryStream memoryStream = (MemoryStream)stream;
 
             Console.ReadKey();
 

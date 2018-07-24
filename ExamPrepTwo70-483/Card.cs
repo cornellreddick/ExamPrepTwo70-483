@@ -4,26 +4,26 @@ using System.Text;
 
 namespace ExamPrepTwo70_483
 {
-    class Card
-    {
-        public Card this[int index]
-        {
-            get { return Cards.ElementAt(index); }
-        }
-    }
-    class Deck
-    {
-        private int _maximumNumberOfCards;
+    //class Card
+    //{
+    //    public Card this[int index]
+    //    {
+    //        get { return Cards.ElementAt(index); }
+    //    }
+    //}
+    //class Deck
+    //{
+    //    private int _maximumNumberOfCards;
 
-        public List<Card> Cards {get; set; }
+    //    public List<Card> Cards {get; set; }
 
-        public Deck(int _maximumNumberOfCards)
-        {
-            _maximumNumberOfCards = maximumNumberOfCards;
-            Cards = new List<Card>();
-        }
+    //    public Deck(int _maximumNumberOfCards)
+    //    {
+    //        _maximumNumberOfCards = maximumNumberOfCards;
+    //        Cards = new List<Card>();
+    //    }
 
 
 
-    }
+    //}
 }
