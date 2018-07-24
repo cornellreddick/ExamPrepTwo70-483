@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -288,9 +289,32 @@ namespace ExamPrepTwo70_483
 
             //Creating a custom struct
 
-            List<int> mylist = new List<int>() { 1, 3, 5 };
-            mylist[0] = 1;
+            //List<int> mylist = new List<int>() { 1, 3, 5 };
+            //mylist[0] = 1;
 
+            ////boxing 
+            //int value = 9;
+            //object objects = value;
+
+            ////unboxing
+            //objects = 9;
+            //value = (int)objects;
+
+            //string.Concat("To box or not box", 42, true);
+
+            ////boxing an inter value
+            //int i = 42;
+            //object o = i;//putting in a new object on the heap and storing a refernces on the stack.
+            //int x = (int)o;
+
+            //implicity converting an integer to a double
+            //int i = 42;
+            //double d = i;
+
+            //implicity converting an object to a base type
+            HttpClient client = new HttpClient();
+            object o = client;
+            IDisposable d = client;
 
             Console.ReadKey();
 

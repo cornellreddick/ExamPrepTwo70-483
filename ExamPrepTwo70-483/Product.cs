@@ -24,5 +24,6 @@ namespace ExamPrepTwo70_483
         {
             return p.Discount();
         }
+
     }
 }
