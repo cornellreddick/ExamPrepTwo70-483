@@ -328,6 +328,17 @@ namespace ExamPrepTwo70_483
             //Object stream = new MemoryStream();
             //MemoryStream memoryStream = (MemoryStream)stream;
 
+            //Using an implicit and explicit cast operator on a custom type
+
+            //Money m = new Money(42.42M);
+            //decimal amount = m;
+            //int truncatedAmount = (int)m;
+
+            // Using the built-in Convert and Parse mehtods
+            //int value = Convert.ToInt32("42");
+            //value = int.Parse("42");
+            //bool success = int.TryParse("42,", out value);
+
             Console.ReadKey();
 
         }
