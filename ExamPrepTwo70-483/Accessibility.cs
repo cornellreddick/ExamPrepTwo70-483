@@ -30,6 +30,22 @@ namespace ExamPrepTwo70_483
             }
         }
 
+        interface IRight
+        {
+            void Move();
+        }
+
+        interface ILeft
+        {
+            void Move();
+        }
+
+        class MoveableOject : ILeft, IRight
+        {
+           void IRight.Move() { }
+           void ILeft.Move() { }
+        }
+
     }
 
     internal class MyInternalClass
@@ -38,3 +54,5 @@ namespace ExamPrepTwo70_483
         public void MyMethod() { }
     }
 }
+
+
