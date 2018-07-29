@@ -366,7 +366,7 @@ namespace ExamPrepTwo70_483
         //    var excelApp = new Excel.Appliction();
         //    excelApp.Visible = true;
         //    NewMethod(excelApp);
-        
+
 
         //  excelApp.Workbooks.Add();
 
@@ -392,7 +392,22 @@ namespace ExamPrepTwo70_483
         //    Add();
         //}
 
-   
+        // IAnimal animal = new Dog();
+
+        List<Order> orders = new List<Order>
+        {
+            new Order { Created = new DateTime(2012, 12, 1 )},
+            new Order { Created = new DateTime(2012, 1, 6 )},
+            new Order { Created = new DateTime(2012, 7, 8 )},
+            new Order { Created = new DateTime(2012, 2, 20 )},
+
+
+        };
+
+         orders.Sort();
+
+        
+         
     }
     
 }

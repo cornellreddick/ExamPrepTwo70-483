@@ -43,4 +43,18 @@ namespace ExamPrepTwo70_483
         T FindById(int id);
         IEnumerable<T> All();
     }
+
+    // Instantiating a concrete type that implements an interface
+    interface IAnimal
+    {
+        void Move();
+    }
+
+    class Dog : IAnimal
+    {
+        public void Move() { }
+        public void Bark() { }
+    }
+
+    
 }
