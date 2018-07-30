@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
+
+
 namespace ExamPrepTwo70_483
 {
     [Serializable]
@@ -52,11 +54,38 @@ namespace ExamPrepTwo70_483
         {
             return GetEnumerator();
         }
+
+        [Fact]
+    [Trait("category", "Unit Test")]
+    public void MyUnitTest()
+    { }
     }
 
     public interface IDisposable
     {
         void Dispose();
     }
-   
+    //[Serializable]
+    //class AttributeClass
+    //{ }
+    //    if (Attribute.IsDefine(typeof(AttributeClass), typeof(SerializableAttribute))) {}
+
+    // Getting a specific attribute instance
+
+    //ConditionalAttribute conditionalAttribute = (ConditionalAttribute)Attribute.GetCustomAttribute(typeof(ConditionalClass), typeof(ConditionalAttribute).First();
+
+    //Using a category attribute in xUnit
+
+    //[Fact]
+    //[Trait("category", "Unit Test")]
+    //public void MyUnitTest()
+    //{ }
+
+    //[Fact]
+    //[Trait(“Category”, “Integration Test”)]
+    //public void MyIntegrationTest()
+    //{ }
+
+
+
 }
