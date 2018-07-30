@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace ExamPrepTwo70_483
 {
+    [Serializable]
     class People
     {
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
+        //Applying an attribute
+        
         public People(string firstName, string lastName)
         {
             FirstName = firstName;
@@ -22,7 +26,9 @@ namespace ExamPrepTwo70_483
             return FirstName + " " + LastName;
         }
 
-
+        // Using multipe attributes. The ConditionalAttribues allow you to list multiple condition for a method. 
+        [Conditional("Condition1") , Conditional("Conditionion2")]
+        static void MyMethod() { }
     }
 
     class Human : IEnumerable<People>
@@ -47,4 +53,10 @@ namespace ExamPrepTwo70_483
             return GetEnumerator();
         }
     }
+
+    public interface IDisposable
+    {
+        void Dispose();
+    }
+   
 }
