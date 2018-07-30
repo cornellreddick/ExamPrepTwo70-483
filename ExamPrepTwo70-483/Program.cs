@@ -357,44 +357,44 @@ namespace ExamPrepTwo70_483
 
             Console.ReadKey();
 
-        }
 
 
-        ////Exportining some data to Excel 
-        //static void DisplayInExcel(IEnumerable<dynamic> entities)
-        //{
-        //    var excelApp = new Excel.Appliction();
-        //    excelApp.Visible = true;
-        //    NewMethod(excelApp);
+
+            ////Exportining some data to Excel 
+            //static void DisplayInExcel(IEnumerable<dynamic> entities)
+            //{
+            //    var excelApp = new Excel.Appliction();
+            //    excelApp.Visible = true;
+            //    NewMethod(excelApp);
 
 
-        //  excelApp.Workbooks.Add();
+            //  excelApp.Workbooks.Add();
 
-        //    dynamic workSheet = excelApp.ActiveSheet;
+            //    dynamic workSheet = excelApp.ActiveSheet;
 
-        //    workSheet.Cells[1, "A"] = "Header A";
-        //    workSheet.Cells[1, "B"] = "Header B";
+            //    workSheet.Cells[1, "A"] = "Header A";
+            //    workSheet.Cells[1, "B"] = "Header B";
 
-        //    var row = 1;
-        //    foreach (var entity in entities)
-        //    {
-        //        row++;
-        //        workSheet.Cells[row, "A"] = entity.ColumnA;
-        //        workSheet.Cells[row, "B"] = entity.ColumnB;
-        //    }
+            //    var row = 1;
+            //    foreach (var entity in entities)
+            //    {
+            //        row++;
+            //        workSheet.Cells[row, "A"] = entity.ColumnA;
+            //        workSheet.Cells[row, "B"] = entity.ColumnB;
+            //    }
 
-        //    workSheet.Columns[1].Autofit();
-        //    workSheet.Columns[2].Autofit();
-        //}
+            //    workSheet.Columns[1].Autofit();
+            //    workSheet.Columns[2].Autofit();
+            //}
 
-        //public static void NewMethod(Appliction excelApp)
-        //{
-        //    Add();
-        //}
+            //public static void NewMethod(Appliction excelApp)
+            //{
+            //    Add();
+            //}
 
-        // IAnimal animal = new Dog();
+            // IAnimal animal = new Dog();
 
-        List<Order> orders = new List<Order>
+            List<Order> orders = new List<Order>
         {
             new Order { Created = new DateTime(2012, 12, 1 )},
             new Order { Created = new DateTime(2012, 1, 6 )},
@@ -404,10 +404,20 @@ namespace ExamPrepTwo70_483
 
         };
 
-         orders.Sort();
+            //orders.Sort();
 
-        
-         
+            // Syntactic sugar of the foreach statemnet 
+            List<int> numbers = new List<int> { 1, 2, 3, 5, 7, 9 };
+
+            using (List<int>.Enumerator enumerator = numbers.GetEnumerator()) 
+            {
+                while (enumerator.MoveNext())
+                {
+                    Console.WriteLine(enumerator.Current);
+                }
+
+            }
+            
+        }
     }
-    
 }
