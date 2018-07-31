@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Excel;
@@ -394,30 +395,46 @@ namespace ExamPrepTwo70_483
 
             // IAnimal animal = new Dog();
 
-            List<Order> orders = new List<Order>
-        {
-            new Order { Created = new DateTime(2012, 12, 1 )},
-            new Order { Created = new DateTime(2012, 1, 6 )},
-            new Order { Created = new DateTime(2012, 7, 8 )},
-            new Order { Created = new DateTime(2012, 2, 20 )},
+            //    List<Order> orders = new List<Order>
+            //{
+            //    new Order { Created = new DateTime(2012, 12, 1 )},
+            //    new Order { Created = new DateTime(2012, 1, 6 )},
+            //    new Order { Created = new DateTime(2012, 7, 8 )},
+            //    new Order { Created = new DateTime(2012, 2, 20 )},
 
 
-        };
+            //};
 
-            //orders.Sort();
+            //    //orders.Sort();
 
-            // Syntactic sugar of the foreach statemnet 
-            List<int> numbers = new List<int> { 1, 2, 3, 5, 7, 9 };
+            //    // Syntactic sugar of the foreach statemnet 
+            //    List<int> numbers = new List<int> { 1, 2, 3, 5, 7, 9 };
 
-            using (List<int>.Enumerator enumerator = numbers.GetEnumerator()) 
+            //    using (List<int>.Enumerator enumerator = numbers.GetEnumerator()) 
+            //    {
+            //        while (enumerator.MoveNext())
+            //        {
+            //            Console.WriteLine(enumerator.Current);
+            //        }
+
+            //    }
+
+
+            //int i = 42;
+            //System.Type type = i.GetType();
+            //Console.ReadKey();
+
+            // insp3cting an assembly for types that implement a custom interface
+            Assembly pluginAssembly = Assembly.Load("assemblyname");
+
+            var plugins = from type in pluginAssembly.GetTypes()
+                          where typeof(IPlugin).IsAssignableFrom(type) && !type.IsInterface
+                          select type;
+
+            foreach (Type pluginType  in plugins)
             {
-                while (enumerator.MoveNext())
-                {
-                    Console.WriteLine(enumerator.Current);
-                }
-
+                IPlugin plugin = Activator.CreateInstance(pluginType) as IPlugin;
             }
-            
         }
     }
 }

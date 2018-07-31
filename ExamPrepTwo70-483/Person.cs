@@ -55,10 +55,7 @@ namespace ExamPrepTwo70_483
             return GetEnumerator();
         }
 
-        [Fact]
-    [Trait("category", "Unit Test")]
-    public void MyUnitTest()
-    { }
+   
     }
 
     public interface IDisposable
