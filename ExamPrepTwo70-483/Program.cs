@@ -459,12 +459,12 @@ namespace ExamPrepTwo70_483
             //        );
 
             //Expression.Lambda<Action>(blockeExpr).Compile()();
-            // Forcing a garbage collection
-            StreamWriter stream = File.CreateText("temp.dat");
-            stream.Write("some data");
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-            File.Delete("temp.dat");
+            //// Forcing a garbage collection
+
+            //StreamWriter stream = File.CreateText("temp.dat");
+            //stream.Write("some data");
+            //stream.Dispose();
+            //File.Delete("temp.dat");
             
             Console.ReadLine();
                
