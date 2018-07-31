@@ -355,10 +355,10 @@ namespace ExamPrepTwo70_483
 
             //DisplayInExcel(entities);
 
-            dynamic obj = new SampleObject();
-            Console.WriteLine(obj.SomeProperty);
+            //dynamic obj = new SampleObject();
+            //Console.WriteLine(obj.SomeProperty);
 
-            Console.ReadKey();
+            //Console.ReadKey();
 
 
 
@@ -447,23 +447,27 @@ namespace ExamPrepTwo70_483
             //Console.WriteLine(addFunc(2, 3));
 
             // Creating "Hello World!" with an expression tree
-            BlockExpression blockeExpr = Expression.Block(
-                Expression.Call(
-                null,
-                typeof(Console).GetMethod("Write", new Type[] { typeof(String) }), Expression.Constant("Hello")),
+            //BlockExpression blockeExpr = Expression.Block(
+            //    Expression.Call(
+            //    null,
+            //    typeof(Console).GetMethod("Write", new Type[] { typeof(String) }), Expression.Constant("Hello")),
 
-                Expression.Call(
-                    null,
-                    typeof(Console).GetMethod("WriteLine", new Type[] { typeof(String) }),
-                    Expression.Constant("World!"))
-                    );
+            //    Expression.Call(
+            //        null,
+            //        typeof(Console).GetMethod("WriteLine", new Type[] { typeof(String) }),
+            //        Expression.Constant("World!"))
+            //        );
 
-            Expression.Lambda<Action>(blockeExpr).Compile()();
-                   
-                   
-           
+            //Expression.Lambda<Action>(blockeExpr).Compile()();
+            // Forcing a garbage collection
+            StreamWriter stream = File.CreateText("temp.dat");
+            stream.Write("some data");
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            File.Delete("temp.dat");
+            
             Console.ReadLine();
-
+               
         }
     }
 }
