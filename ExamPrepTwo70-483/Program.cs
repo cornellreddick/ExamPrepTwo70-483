@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using Excel;
 using System.CodeDom;
 using System.Linq.Expressions;
+using System.Text;
+using System.Xml;
+using System.Globalization;
 
 namespace ExamPrepTwo70_483
 {
@@ -465,7 +468,42 @@ namespace ExamPrepTwo70_483
             //stream.Write("some data");
             //stream.Dispose();
             //File.Delete("temp.dat");
-            
+
+            //string s = string.Empty;
+
+            //for (int i = 0; i < 10000; i++)
+            //{
+            //    s += "x";
+            //}
+
+            //Changing a character with a StringBulder
+            //System.Text.StringBuilder sb = new System.Text.StringBuilder("A initial value");
+            //sb[0] = 'B';
+
+            //StringBuilder stringBuilder = new StringBuilder(string.Empty);
+
+            //for (int i = 0; i < 10000; i++)
+            //{
+            //    stringBuilder.Append("x");
+
+            //}
+            // Using a StringReader as the input for an XmlReader
+
+            //var stringReader = new StringReader(xml);
+            //using (XmlReader reader = XmlReader.Create(stringReader))
+            //{
+            //    reader.ReadToFollowing(“price”);
+            //    decimal price = decimal.Parse(reader.ReadInnerXml(),
+            //    new CultureInfo(“en - US”)); // Make sure that you read the decimal part correctly
+            //}
+
+
+            // Using IndexOf and LastIndexOf
+
+            string value = "My Sample Value";
+            int indexOfp = value.IndexOf('p');
+            int lastIndexOfm = value.LastIndexOf('m');
+
             Console.ReadLine();
                
         }
