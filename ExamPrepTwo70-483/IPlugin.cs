@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace ExamPrepTwo70_483
@@ -22,5 +23,20 @@ namespace ExamPrepTwo70_483
         {
             throw new NotImplementedException();
         }
+    }
+
+    public class Reflection
+    {
+        // Getting the value of a field thorugh reflection
+        static void DumpObject(object obj)
+        {
+            FieldInfo[] fields = obj.GetType().GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
+
+            foreach (FieldInfo field in fields)
+            {
+                Console.WriteLine(field.GetValue(obj));
+            }
+        }
+        
     }
 }
