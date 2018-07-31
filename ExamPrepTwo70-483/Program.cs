@@ -8,6 +8,8 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Excel;
+using System.CodeDom;
+using System.Linq.Expressions;
 
 namespace ExamPrepTwo70_483
 {
@@ -425,16 +427,43 @@ namespace ExamPrepTwo70_483
             //Console.ReadKey();
 
             // insp3cting an assembly for types that implement a custom interface
-            Assembly pluginAssembly = Assembly.Load("assemblyname");
+            //Assembly pluginAssembly = Assembly.Load("assemblyname");
 
-            var plugins = from type in pluginAssembly.GetTypes()
-                          where typeof(IPlugin).IsAssignableFrom(type) && !type.IsInterface
-                          select type;
+            //var plugins = from type in pluginAssembly.GetTypes()
+            //              where typeof(IPlugin).IsAssignableFrom(type) && !type.IsInterface
+            //              select type;
 
-            foreach (Type pluginType  in plugins)
-            {
-                IPlugin plugin = Activator.CreateInstance(pluginType) as IPlugin;
-            }
+            //foreach (Type pluginType  in plugins)
+            //{
+            //    IPlugin plugin = Activator.CreateInstance(pluginType) as IPlugin;
+            //}
+
+            //int i = 42;
+            //MethodInfo compareToMethod = i.GetType().GetMethod("CompareTo", new Type[] { typeof(int) });
+            //int result = (int)compareToMethod.Invoke(i, new object[] { 41 });
+
+            //Creating a Func type with a lambda
+            //Func<int, int, int> addFunc = (x, y) => x + y;
+            //Console.WriteLine(addFunc(2, 3));
+
+            // Creating "Hello World!" with an expression tree
+            BlockExpression blockeExpr = Expression.Block(
+                Expression.Call(
+                null,
+                typeof(Console).GetMethod("Write", new Type[] { typeof(String) }), Expression.Constant("Hello")),
+
+                Expression.Call(
+                    null,
+                    typeof(Console).GetMethod("WriteLine", new Type[] { typeof(String) }),
+                    Expression.Constant("World!"))
+                    );
+
+            Expression.Lambda<Action>(blockeExpr).Compile()();
+                   
+                   
+           
+            Console.ReadLine();
+
         }
     }
 }
