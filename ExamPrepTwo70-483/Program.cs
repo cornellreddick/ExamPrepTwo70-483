@@ -527,6 +527,23 @@ namespace ExamPrepTwo70_483
             Console.WriteLine(publicKeyXML);
             Console.WriteLine(privateKeyXML);
 
+            //Using a public and private key to encrypt and decrypt data
+            UnicodeEncoding ByteConverter = new UnicodeEncoding();
+            byte[] dataToEncrypt = ByteConverter.GetBytes("MySecretData");
+            byte[] encryptedData;
+            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            {
+                RSA.FromXmlString(publicKeyXML);
+                encryptedData = RSA.Encrypt(dataToEncrypt, false);
+            }
+            byte[] decryptedData;
+            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            {
+                RSA.FromXmlString(privateKeyXML);
+                decryptedData = RSA.Decrypt(encryptedData, false);
+            }
+            string decryptedString = ByteConverter.GetString(decryptedData);
+            Console.WriteLine(decryptedString);
         }
     }
 }
