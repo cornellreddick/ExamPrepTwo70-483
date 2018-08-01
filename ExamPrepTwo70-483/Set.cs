@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -110,6 +112,20 @@ namespace ExamPrepTwo70_483
             return certificate;
         }
 
+        //Getting the value of a SecureString
+        public static void ConvertToUnsecureString(SecureString securePassword)
+        {
+            IntPtr unmanagedString = IntPtr.Zero;
+            try
+            {
+                unmanagedString = Marshal.SecureStringToGlobalAllocUnicode(securePassword);
+                Console.WriteLine(Marshal.PtrToStringUni(unmanagedString));
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
+            }
+        }
        
     }
 }

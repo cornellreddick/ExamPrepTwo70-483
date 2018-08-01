@@ -572,18 +572,23 @@ namespace ExamPrepTwo70_483
             //Console.WriteLine(hashA.SequenceEqual(hashC));
 
             //Initializing a SecureString
-            using (SecureString ss = new SecureString())
-            {
-                Console.Write("Please enter password:");
-                while (true)
-                {
-                    ConsoleKeyInfo cki = Console.ReadKey(true);
-                    if (cki.Key == ConsoleKey.Enter) break;
-                    ss.AppendChar(cki.KeyChar);
-                    Console.Write("*");
-                }
-                ss.MakeReadOnly();
-            }
+            //using (SecureString ss = new SecureString())
+            //{
+            //    Console.Write("Please enter password:");
+            //    while (true)
+            //    {
+            //        ConsoleKeyInfo cki = Console.ReadKey(true);
+            //        if (cki.Key == ConsoleKey.Enter) break;
+            //        ss.AppendChar(cki.KeyChar);
+            //        Console.Write("*");
+            //    }
+            //    ss.MakeReadOnly();
+            //}
+
+            //Getting the value of a SecureString
+           
+          
+
         }
     }
 }
