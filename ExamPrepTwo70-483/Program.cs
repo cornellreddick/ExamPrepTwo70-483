@@ -15,6 +15,7 @@ using System.Xml;
 using System.Globalization;
 
 using System.Security.Cryptography;
+using System.Security;
 
 namespace ExamPrepTwo70_483
 {
@@ -554,21 +555,35 @@ namespace ExamPrepTwo70_483
             //    encryptedData = RSA.Encrypt(dataToEncrypt, false);
             //}
 
-            //Using SHA256Managed to calculate a hash code
-            UnicodeEncoding byteConverter = new UnicodeEncoding();
-            SHA256 sha256 = SHA256.Create();
+            ////Using SHA256Managed to calculate a hash code
+            //UnicodeEncoding byteConverter = new UnicodeEncoding();
+            //SHA256 sha256 = SHA256.Create();
 
-            string data ="A paragraph of text";
-            byte[] hashA = sha256.ComputeHash(byteConverter.GetBytes(data));
+            //string data ="A paragraph of text";
+            //byte[] hashA = sha256.ComputeHash(byteConverter.GetBytes(data));
 
-            data ="A paragraph of changed text";
-            byte[] hashB = sha256.ComputeHash(byteConverter.GetBytes(data));
+            //data ="A paragraph of changed text";
+            //byte[] hashB = sha256.ComputeHash(byteConverter.GetBytes(data));
 
-            data ="A paragraphof text";
+            //data ="A paragraphof text";
 
-            byte[] hashC = sha256.ComputeHash(byteConverter.GetBytes(data));
-            Console.WriteLine(hashA.SequenceEqual(hashB)); 
-            Console.WriteLine(hashA.SequenceEqual(hashC));
+            //byte[] hashC = sha256.ComputeHash(byteConverter.GetBytes(data));
+            //Console.WriteLine(hashA.SequenceEqual(hashB)); 
+            //Console.WriteLine(hashA.SequenceEqual(hashC));
+
+            //Initializing a SecureString
+            using (SecureString ss = new SecureString())
+            {
+                Console.Write("Please enter password:");
+                while (true)
+                {
+                    ConsoleKeyInfo cki = Console.ReadKey(true);
+                    if (cki.Key == ConsoleKey.Enter) break;
+                    ss.AppendChar(cki.KeyChar);
+                    Console.Write("*");
+                }
+                ss.MakeReadOnly();
+            }
         }
     }
 }
