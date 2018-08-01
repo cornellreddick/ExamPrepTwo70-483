@@ -13,6 +13,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Xml;
 using System.Globalization;
+using System.Web.Script
 
 namespace ExamPrepTwo70_483
 {
@@ -500,12 +501,26 @@ namespace ExamPrepTwo70_483
 
             // Using IndexOf and LastIndexOf
 
-            string value = "My Sample Value";
-            int indexOfp = value.IndexOf('p');
-            int lastIndexOfm = value.LastIndexOf('m');
+            //string value = "My Sample Value";
+            //int indexOfp = value.IndexOf('p');
+            //int lastIndexOfm = value.LastIndexOf('m');
 
-            Console.ReadLine();
-               
+            //Using StartsWith and EndsWith
+            //string value = "<mycustominput>";
+            //if (value.StartsWith("<")) { }
+            //if (value.EndsWith(">")) { }
+
+            ////Reading a Substring
+            //string value = "My Sample Value";
+            //string subString = value.Substring(3, 6);
+
+
+
+            // Deserializing an object with the JavaScriptSerializer
+
+         
+            
+              
         }
     }
 }
