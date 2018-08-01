@@ -6,8 +6,8 @@ using System.Text;
 
 namespace ExamPrepTwo70_483
 {
-    class IsAndAsOperators
-    {
+    //class IsAndAsOperators
+    //{
     //    //Using the is and as operators
     //    void OpenConnection(DbConnection connection)
     //    {
@@ -36,4 +36,4 @@ namespace ExamPrepTwo70_483
     //        _connected = connection;
     //    }
     //}
-//}
+}

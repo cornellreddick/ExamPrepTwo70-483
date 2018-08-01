@@ -16,6 +16,7 @@ using System.Globalization;
 
 using System.Security.Cryptography;
 using System.Security;
+using System.Diagnostics;
 
 namespace ExamPrepTwo70_483
 {
@@ -586,9 +587,15 @@ namespace ExamPrepTwo70_483
             //}
 
             //Getting the value of a SecureString
-           
-          
 
+            // Using the Debug class
+            Debug.WriteLine("Startting application");
+            Debug.Indent();
+            int i = 1 + 2;
+            Debug.Assert(i == 3);
+            Debug.WriteLineIf(i > 0, "is is greater than 0");
+            Console.ReadLine();
         }
+        
     }
 }
