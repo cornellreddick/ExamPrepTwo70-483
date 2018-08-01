@@ -522,28 +522,53 @@ namespace ExamPrepTwo70_483
             //Exporting a public key 
 
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-            string publicKeyXML = rsa.ToXmlString(false);
-            string privateKeyXML = rsa.ToXmlString(true);
-            Console.WriteLine(publicKeyXML);
-            Console.WriteLine(privateKeyXML);
+            //string publicKeyXML = rsa.ToXmlString(false);
+            //string privateKeyXML = rsa.ToXmlString(true);
+            //Console.WriteLine(publicKeyXML);
+            //Console.WriteLine(privateKeyXML);
 
-            //Using a public and private key to encrypt and decrypt data
-            UnicodeEncoding ByteConverter = new UnicodeEncoding();
-            byte[] dataToEncrypt = ByteConverter.GetBytes("MySecretData");
-            byte[] encryptedData;
-            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
-            {
-                RSA.FromXmlString(publicKeyXML);
-                encryptedData = RSA.Encrypt(dataToEncrypt, false);
-            }
-            byte[] decryptedData;
-            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
-            {
-                RSA.FromXmlString(privateKeyXML);
-                decryptedData = RSA.Decrypt(encryptedData, false);
-            }
-            string decryptedString = ByteConverter.GetString(decryptedData);
-            Console.WriteLine(decryptedString);
+            ////Using a public and private key to encrypt and decrypt data
+            //UnicodeEncoding ByteConverter = new UnicodeEncoding();
+            //byte[] dataToEncrypt = ByteConverter.GetBytes("MySecretData");
+            //byte[] encryptedData;
+            //using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            //{
+            //    RSA.FromXmlString(publicKeyXML);
+            //    encryptedData = RSA.Encrypt(dataToEncrypt, false);
+            //}
+            //byte[] decryptedData;
+            //using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            //{
+            //    RSA.FromXmlString(privateKeyXML);
+            //    decryptedData = RSA.Decrypt(encryptedData, false);
+            //}
+            //string decryptedString = ByteConverter.GetString(decryptedData);
+            //Console.WriteLine(decryptedString);
+
+            //Using a key container for storing an asymmetric key
+            //string containerName ="SecretContainer";
+            //CspParameters csp = new CspParameters() { KeyContainerName = containerName };
+            //byte[] encryptedData;
+            //using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider(csp))
+            //{
+            //    encryptedData = RSA.Encrypt(dataToEncrypt, false);
+            //}
+
+            //Using SHA256Managed to calculate a hash code
+            UnicodeEncoding byteConverter = new UnicodeEncoding();
+            SHA256 sha256 = SHA256.Create();
+
+            string data ="A paragraph of text";
+            byte[] hashA = sha256.ComputeHash(byteConverter.GetBytes(data));
+
+            data ="A paragraph of changed text";
+            byte[] hashB = sha256.ComputeHash(byteConverter.GetBytes(data));
+
+            data ="A paragraphof text";
+
+            byte[] hashC = sha256.ComputeHash(byteConverter.GetBytes(data));
+            Console.WriteLine(hashA.SequenceEqual(hashB)); 
+            Console.WriteLine(hashA.SequenceEqual(hashC));
         }
     }
 }
