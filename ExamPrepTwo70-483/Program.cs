@@ -13,7 +13,8 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Xml;
 using System.Globalization;
-using System.Web.Script
+
+using System.Security.Cryptography;
 
 namespace ExamPrepTwo70_483
 {
@@ -518,9 +519,14 @@ namespace ExamPrepTwo70_483
 
             // Deserializing an object with the JavaScriptSerializer
 
-         
-            
-              
+            //Exporting a public key 
+
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
+            string publicKeyXML = rsa.ToXmlString(false);
+            string privateKeyXML = rsa.ToXmlString(true);
+            Console.WriteLine(publicKeyXML);
+            Console.WriteLine(privateKeyXML);
+
         }
     }
 }
