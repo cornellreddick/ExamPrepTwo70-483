@@ -672,6 +672,17 @@ namespace ExamPrepTwo70_483
             Thread t = new Thread(Count);
             t.Start();
 
+            Task task = Task.Run(() =>
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    Thread.Sleep(500);
+                    Console.Write("BG ");
+                }
+                
+            });
+            
+
         }
 
         static void Count()
@@ -679,7 +690,7 @@ namespace ExamPrepTwo70_483
             for (int i = 0; i < 4; i++)
             {
                 System.Threading.Thread.Sleep(500);
-                Console.Write("FG");
+                Console.Write("FG ");
             }
         }
 
