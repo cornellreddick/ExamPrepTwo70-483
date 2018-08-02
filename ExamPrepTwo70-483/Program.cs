@@ -669,33 +669,69 @@ namespace ExamPrepTwo70_483
             //            Console.Write(".");
             //        }
 
-            Thread t = new Thread(Count);
-            t.Start();
+            // Thread t = new Thread(Count);
+            //    t.Start();
 
-            Task task = Task.Run(() =>
+            //    Task task = Task.Run(() =>
+            //    {
+            //        for (int i = 0; i < 8; i++)
+            //        {
+            //            Thread.Sleep(500);
+            //            Console.Write("BG ");
+            //        }
+
+            //    });
+
+
+            //}
+
+            //static void Count()
+            //{
+            //    for (int i = 0; i < 4; i++)
+            //    {
+            //        System.Threading.Thread.Sleep(500);
+            //        Console.Write("FG ");
+            //    }
+
+            AsyncAwaitDemo demo = new AsyncAwaitDemo();
+            demo.DoStuff();
+
+            for (int i = 0; i < 100; i++)
             {
-                for (int i = 0; i < 8; i++)
-                {
-                    Thread.Sleep(500);
-                    Console.Write("BG ");
-                }
-                
-            });
-            
-
-        }
-
-        static void Count()
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                System.Threading.Thread.Sleep(500);
-                Console.Write("FG ");
+                Console.WriteLine("Working on the Main Thread.....");
             }
+            Console.ReadKey();
         }
 
 
     }
+
+    public class AsyncAwaitDemo
+    {
+        public async Task DoStuff()
+        {
+            await Task.Run(() =>
+            {
+                CountToFifty();
+            });
+            // this will not execute until CountToFifty has completed
+            Console.WriteLine("Counting to 50 is completed...");
+           
+
+        }
+
+        private async Task<string> CountToFifty()
+        {
+            int counter;
+            for (counter = 0; counter < 51;counter++)
+            {
+                Console.WriteLine("BG thread: " + counter);
+            }
+
+            return ("Counter = " + counter);
+        }
+    }
+  
 }
 
        
