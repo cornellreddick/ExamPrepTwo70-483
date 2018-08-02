@@ -732,6 +732,12 @@ namespace ExamPrepTwo70_483
 
 
             ReadFile();
+            Console.WriteLine("Preass enter to encrypt the file...");
+            Console.ReadLine();
+
+            EncryptFile(@"C:\test.txt");
+            Console.WriteLine("Press enter to decrypt the file...");
+            DecrytFile(@"C:\test.txt");
             Console.ReadKey();
         }
 
@@ -747,11 +753,11 @@ namespace ExamPrepTwo70_483
             {
                 Console.WriteLine(line);
             }
-
+            counter++;
             file.Close();
         }
 
-        public static void EncrytFile(string x)
+        public static void EncryptFile(string x)
         {
             File.Encrypt(x);
         }
