@@ -22,6 +22,8 @@ namespace ExamPrepTwo70_483
 {
     class Program
     {
+
+        const int numberOfIterations = 1000000;
         static void Main(string[] args)
         {
             ////Parallel Language-Intergrated Query(PLINQ). Below is how you convert a Query to a parallel queary. 
@@ -589,13 +591,85 @@ namespace ExamPrepTwo70_483
             //Getting the value of a SecureString
 
             // Using the Debug class
-            Debug.WriteLine("Startting application");
-            Debug.Indent();
-            int i = 1 + 2;
-            Debug.Assert(i == 3);
-            Debug.WriteLineIf(i > 0, "is is greater than 0");
+            //Debug.WriteLine("Startting application");
+            //Debug.Indent();
+            //int i = 1 + 2;
+            //Debug.Assert(i == 3);
+            //Debug.WriteLineIf(i > 0, "is is greater than 0");
+            //Console.ReadLine();
+
+            //// Using the TraceSource class
+            //TraceSource traceSource = new TraceSource("myTraceSource", SourceLevels.All);
+            //traceSource.TraceInformation("Tracingapplication..");
+            //traceSource.TraceEvent(TraceEventType.Critical, 0,"Criticaltrace");
+            //traceSource.TraceData(TraceEventType.Information, 1,
+            //new object[] { "a", "b", "c" });
+            //traceSource.Flush();
+            //traceSource.Close();
+
+            // Configuring Traceistener
+
+            //Stream outputFile = File.Create("tracefile.txt");
+            //TextWriterTraceListener textListener =
+            //new TextWriterTraceListener(outputFile);
+            //TraceSource traceSource = new TraceSource("myTraceSource",
+            //SourceLevels.All);
+            //traceSource.Listeners.Clear();
+            //traceSource.Listeners.Add(textListener);
+            //traceSource.TraceInformation("Traceoutput");
+            //traceSource.Flush();
+            //traceSource.Close();
+
+            //    Stopwatch sw = new Stopwatch();
+            //    sw.Start();
+            //    Algorithm1();
+            //    sw.Stop();
+            //    Console.WriteLine(sw.Elapsed);
+
+            //    sw.Reset();
+            //    sw.Start();
+            //    Algorithm2();
+            //    sw.Stop();
+            //    Console.WriteLine(sw.Elapsed);
+            //    Console.WriteLine("Ready…");
+            //    Console.ReadLine();
+            //}
+            //private static void Algorithm2()
+            //{
+            //    string result ="";
+            //    for (int x = 0; x < numberOfIterations; x++)
+            //    {
+            //        result +='a';
+            //    }
+            //}
+            //private static void Algorithm1()
+            //{
+            //    StringBuilder sb = new StringBuilder();
+            //    for (int x = 0; x < numberOfIterations; x++)
+            //    {
+            //        sb.Append('a');
+            //    }
+            //    string result = sb.ToString();
+
+            Thread t = new Thread(WriteX);
+            t.Start();
+
+            for (int i = 0; i < 1000; i++)
+            {
+                Console.Write("O");
+            }
+
             Console.ReadLine();
         }
-        
+
+        static void WriteX()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                Console.Write(".");
+            }
+        }
     }
 }
+
+       
