@@ -693,42 +693,72 @@ namespace ExamPrepTwo70_483
             //        Console.Write("FG ");
             //    }
 
-            AsyncAwaitDemo demo = new AsyncAwaitDemo();
-            demo.DoStuff();
+            //        AsyncAwaitDemo demo = new AsyncAwaitDemo();
+            //        demo.DoStuff();
 
-            for (int i = 0; i < 100; i++)
-            {
-                Console.WriteLine("Working on the Main Thread.....");
-            }
+            //        for (int i = 0; i < 100; i++)
+            //        {
+            //            Console.WriteLine("Working on the Main Thread.....");
+            //        }
+            //        Console.ReadKey();
+            //    }
+
+
+            //}
+
+            //public class AsyncAwaitDemo
+            //{
+            //    public async Task DoStuff()
+            //    {
+            //        await Task.Run(() =>
+            //        {
+            //            CountToFifty();
+            //        });
+            //        // this will not execute until CountToFifty has completed
+            //        Console.WriteLine("Counting to 50 is completed...");
+
+
+            //    }
+
+            //    private async Task<string> CountToFifty()
+            //    {
+            //        int counter;
+            //        for (counter = 0; counter < 51;counter++)
+            //        {
+            //            Console.WriteLine("BG thread: " + counter);
+            //        }
+
+            //        return ("Counter = " + counter);
+
+
+            ReadFile();
             Console.ReadKey();
         }
 
-
-    }
-
-    public class AsyncAwaitDemo
-    {
-        public async Task DoStuff()
+        public static void ReadFile()
         {
-            await Task.Run(() =>
-            {
-                CountToFifty();
-            });
-            // this will not execute until CountToFifty has completed
-            Console.WriteLine("Counting to 50 is completed...");
-           
+            int counter = 0;
+            string line;
 
-        }
+            // Read the file and display it line by line.
 
-        private async Task<string> CountToFifty()
-        {
-            int counter;
-            for (counter = 0; counter < 51;counter++)
+            StreamReader file = new StreamReader(@"C:\test.txt");
+            while ((line = file.ReadLine()) != null)
             {
-                Console.WriteLine("BG thread: " + counter);
+                Console.WriteLine(line);
             }
 
-            return ("Counter = " + counter);
+            file.Close();
+        }
+
+        public static void EncrytFile(string x)
+        {
+            File.Encrypt(x);
+        }
+
+        public static void DecrytFile(string x)
+        {
+            File.Decrypt(x);
         }
     }
   
