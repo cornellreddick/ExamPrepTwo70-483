@@ -651,24 +651,39 @@ namespace ExamPrepTwo70_483
             //    }
             //    string result = sb.ToString();
 
-            Thread t = new Thread(WriteX);
+            //        Thread t = new Thread(WriteX);
+            //        t.Start();
+
+            //        for (int i = 0; i < 1000; i++)
+            //        {
+            //            Console.Write("O");
+            //        }
+
+            //        Console.ReadLine();
+            //    }
+
+            //    static void WriteX()
+            //    {
+            //        for (int i = 0; i < 1000; i++)
+            //        {
+            //            Console.Write(".");
+            //        }
+
+            Thread t = new Thread(Count);
             t.Start();
 
-            for (int i = 0; i < 1000; i++)
-            {
-                Console.Write("O");
-            }
-
-            Console.ReadLine();
         }
 
-        static void WriteX()
+        static void Count()
         {
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 4; i++)
             {
-                Console.Write(".");
+                System.Threading.Thread.Sleep(500);
+                Console.Write("FG");
             }
         }
+
+
     }
 }
 
